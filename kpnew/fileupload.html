@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="filestyles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h3>Upload Files</h3>
+            <div class="drop_box">
+                <header>
+                    <h4>Select File here</h4>
+                </header>
+                <p>Files Supported: PDF, TEXT, DOC, DOCX</p>
+                <input type="file" name="file" accept=".pdf,.doc,.docx,.txt" id="fileID" style="display:none;">
+                <button class="btn" onclick="chooseFile()">Choose File</button>
+            </div>
+        </div>
+    </div>
+    <script src="fileupload.js"></script>
+    <script>
+        function chooseFile() {
+            // Trigger click event on the file input
+            document.getElementById("fileID").click();
+        }
+
+        // Function to handle file upload
+        document.getElementById("fileID").addEventListener("change", function() {
+            var fileInput = document.getElementById('fileID');
+            var file = fileInput.files[0];
+            var formData = new FormData();
+            formData.append('file', file);
+
+            // Send the file data to the server using AJAX
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'upload.php', true);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    console.log('File uploaded successfully.');
+                    // Handle success (e.g., display success message)
+                } else {
+                    console.log('Error uploading file.');
+                    // Handle error (e.g., display error message)
+                }
+            };
+            xhr.send(formData);
+        });
+    </script>
+</body>
+</html>
