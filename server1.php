@@ -3,8 +3,7 @@ session_start();
 
 // initializing variables
 $name = "";
-$registerNo= "";
-$sem="";
+$id= "";
 $email    = "";
 $errors = array(); 
 
@@ -15,17 +14,15 @@ $db = mysqli_connect('localhost', 'root', '', 'project1');
 if (isset($_POST['reg_user'])) {
   // receive all input values from the form
   $name = mysqli_real_escape_string($db, $_POST['name']);
-  $registerNo= mysqli_real_escape_string($db, $_POST['registerNo']);
-  $sem = mysqli_real_escape_string($db, $_POST['sem']);
+  $id= mysqli_real_escape_string($db, $_POST['id']);
   $email = mysqli_real_escape_string($db, $_POST['email']);
   $password_1 = mysqli_real_escape_string($db, $_POST['password_1']);
   $password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
 
   // form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error unto $errors array
-  if (empty($name)) { array_push($errors, "Username is required"); }
-  if (empty($registerNo)) { array_push($errors, "Register number is required"); }
-  if (empty($sem)) { array_push($errors, "Semester is required"); }
+  if (empty($name)) { array_push($errors, "Name is required"); }
+  if (empty($id)) { array_push($errors, "Faculty id is required"); }
   if (empty($email)) { array_push($errors, "Email is required"); }
 
   if (empty($password_1)) { array_push($errors, "Password is required"); }
@@ -35,7 +32,7 @@ if (isset($_POST['reg_user'])) {
 
   // first check the database to make sure 
   // a user does not already exist with the same username and/or email
-  $user_check_query = "SELECT * FROM student WHERE name='$name' OR email='$email' LIMIT 1";
+  $user_check_query = "SELECT * FROM coordinator WHERE name='$name' OR email='$email' LIMIT 1";
   $result = mysqli_query($db, $user_check_query);
   $user = mysqli_fetch_assoc($result);
   
@@ -53,11 +50,11 @@ if (isset($_POST['reg_user'])) {
   if (count($errors) == 0) {
   	$password = md5($password_1);//encrypt the password before saving in the database
 
-  	$query = "INSERT INTO student (name, registerNo,sem,email, password) 
-  			  VALUES('$name', '$registerNo','$sem','$email', '$password')";
+  	$query = "INSERT INTO coordinator (name,id,email,password) 
+  			  VALUES('$name', '$id','$email', '$password')";
   	mysqli_query($db, $query);
   	$_SESSION['name'] = $name;
-  	$_SESSION['success'] = "You have registered successfully";
+  	$_SESSION['success'] = "You are now logged in";
   	header('location: index.php');
   }
 }
@@ -68,7 +65,7 @@ if (isset($_POST['login_user'])) {
   $password = mysqli_real_escape_string($db, $_POST['password']);
 
   if (empty($name)) {
-  	array_push($errors, "Username is required");
+  	array_push($errors, "Name is required");
   }
   if (empty($password)) {
   	array_push($errors, "Password is required");
@@ -76,12 +73,12 @@ if (isset($_POST['login_user'])) {
 
   if (count($errors) == 0) {
   	$password = md5($password);
-  	$query = "SELECT * FROM student WHERE name='$name' AND password='$password'";
+  	$query = "SELECT * FROM coordinator WHERE name='$name' AND password='$password'";
   	$results = mysqli_query($db, $query);
   	if (mysqli_num_rows($results) == 1) {
   	  $_SESSION['name'] = $name;
   	  $_SESSION['success'] = "You are now logged in";
-  	  header('location: http://localhost/my_php_project/stdpanel.php');
+  	  header('location: index.php');
   	}else {
   		array_push($errors, "Wrong username/password combination");
   	}
