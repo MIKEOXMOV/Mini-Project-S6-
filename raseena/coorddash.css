@@ -120,7 +120,7 @@ body.dark {
   content: "Dashboard";
 }
 .menu_editor::before {
-  content: "GROUP";
+  content: "COORDINATOR";
 }
 .menu_setting::before {
   content: "VIEW";

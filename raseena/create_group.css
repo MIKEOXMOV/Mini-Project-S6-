@@ -1,0 +1,61 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.groups, .students {
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 50%;
+    min-height: 300px;
+    background-color: #fff;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.group, .student {
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.group:hover, .student:hover {
+    background-color: #e0e0e0;
+}
+
+#submitGroups {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+#submitGroups:hover {
+    background-color: #45a049;
+}
+
+#successMessage {
+    font-size: 20px;
+    color: #4CAF50;
+    font-weight: bold;
+    margin-top: 20px;
+    display: none;
+}

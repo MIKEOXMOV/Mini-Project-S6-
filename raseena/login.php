@@ -27,8 +27,8 @@
   		Not yet a member? <a href="student_register.php">Sign up</a>
   	</p>
 	  <p>
-  		Forgot Password? <a href="forgot_password.html">Sign up</a>
+  		Forgot Password? <a href="forgot_password.php">Reset Password</a>
   	</p>
-  </form>
+  </form> c
 </body>
 </html>

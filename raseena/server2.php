@@ -55,7 +55,7 @@ if (isset($_POST['reg_user'])) {
   	mysqli_query($db, $query);
   	$_SESSION['name'] = $name;
   	$_SESSION['success'] = "You are now logged in";
-  	header('location: index.php');
+  	header('location:guide success.php');
   }
 }
 
@@ -73,15 +73,20 @@ if (isset($_POST['login_user'])) {
 
   if (count($errors) == 0) {
   	$password = md5($password);
-  	$query = "SELECT * FROM guide WHERE name='$name' AND password='$password'";
-  	$results = mysqli_query($db, $query);
-  	if (mysqli_num_rows($results) == 1) {
-  	  $_SESSION['name'] = $name;
-  	  $_SESSION['success'] = "You are now logged in";
-  	  header('location: index.php');
-  	}else {
-  		array_push($errors, "Wrong username/password combination");
-  	}
+    $query = "SELECT id FROM guide WHERE name='$name' AND password='$password'";
+    $results = mysqli_query($db, $query);
+    
+    if (mysqli_num_rows($results) == 1) {
+        $row = mysqli_fetch_assoc($results);
+        $guideId = $row['id'];
+    
+        $_SESSION['name'] = $name;
+        $_SESSION['guideId'] = $guideId;
+        $_SESSION['success'] = "You are now logged in";
+        header('location: guidedash.php');
+    } else {
+        array_push($errors, "Wrong username/password combination");
+    }
   }
 }
 

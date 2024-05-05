@@ -33,7 +33,7 @@
                     <i class="uil uil-estate"></i>
                     <span class="link-name">Dashboard</span>
                 </a></li>
-                <li><a href="#">
+                <li><a href="guide_list.php">
                     <i class="uil uil-user-square"></i>
                     <span class="link-name">Guide</span>
                 </a></li>

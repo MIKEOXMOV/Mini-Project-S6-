@@ -117,10 +117,10 @@ body.dark {
   white-space: nowrap;
 }
 .menu_dahsboard::before {
-  content: "Dashboard";
+  content: "DASHBOARD";
 }
 .menu_editor::before {
-  content: "GROUP";
+  content: "GUIDE";
 }
 .menu_setting::before {
   content: "VIEW";

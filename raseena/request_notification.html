@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Notifications</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Request Notifications</h1>
+        <div id="notificationArea">
+            <!-- Notifications will be displayed here -->
+        </div>
+        <form id="requestForm">
+            <label for="studentId">Your Reg No:</label>
+            <input type="text" id="studentId" name="studentId">
+            <label for="guideSelect">Select Guide:</label>
+            <select id="guideSelect" name="guideId">
+                <!-- Options for guides will be dynamically populated -->
+            </select>
+            <button type="submit">Submit Request</button>
+        </form>
+    </div>
+
+    <script src="request_notification.js"></script>
+</body>
+</html>

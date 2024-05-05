@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Progress</title>
+    <link rel="stylesheet" href="progress_tracker.css">
+</head>
+<body>
+    <h2>Project Progress</h2>
+    
+    <div class="activities">
+        <h3>Activities:</h3>
+        <form id="activity-form">
+            <label for="idea-submit">Idea Submission:</label>
+            <input type="checkbox" id="idea-submit" name="idea-submit">
+            <br>
+            <label for="presentation">Presentation:</label>
+            <input type="checkbox" id="presentation" name="presentation">
+            <br>
+            <!-- Add more activities as needed -->
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <div class="progress-container">
+        <h3>Progress:</h3>
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <script src="progress_tracker.js"></script>
+</body>
+</html>

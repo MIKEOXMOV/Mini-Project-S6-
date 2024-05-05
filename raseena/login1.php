@@ -26,6 +26,9 @@
   	<p>
   		Not yet a member? <a href="coordinator_register.php">Sign up</a>
   	</p>
+	  <p>
+  		Forgot Password? <a href="forgot_password.php">Reset Password</a>
+  	</p>
   </form>
 </body>
 </html>

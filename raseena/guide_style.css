@@ -1,0 +1,33 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+body {
+    font-size: 120%;
+    background: #F8F8FF;
+  }
+
+.teacher-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.teacher-table th,
+.teacher-table td {
+    border: 1px solid #B0C4DE;
+    padding: 8px;
+    text-align: left;
+}
+
+.teacher-table th {
+    background-color: #ffffff;
+}
+
+.teacher-table tr:nth-child(even) {
+    background-color: #5F9EA0;
+}
+
+.teacher-table tr:hover {
+    background-color: #ddd;
+}
