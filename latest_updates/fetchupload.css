@@ -1,0 +1,27 @@
+/* Uploaded files styling */
+.uploaded_files {
+    padding: 10px;
+}
+
+.file_item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: #f0f0f0; /* Light gray background */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.file_name {
+    flex: 1;
+}
+
+.download_link {
+    margin-left: 10px;
+    color: #3498db; /* Blue color for download link */
+    text-decoration: none;
+}
+
+.download_link:hover {
+    text-decoration: underline; /* Underline download link on hover */
+}

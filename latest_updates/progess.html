@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Monitoring</title>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<style>
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+#cblist {
+    margin-bottom: 10px;
+}
+
+#cblist input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.phase-item {
+    margin-bottom: 5px;
+}
+
+.phase-item input[type="text"] {
+    display: none;
+}
+
+#progressbar {
+    width: 100%;
+    height: 20px;
+    margin-top: 10px;
+}
+
+.ui-progressbar-value {
+    background: #007bff; /* Blue color for progress bar */
+}
+
+.btn-group {
+    margin-top: 10px;
+}
+
+.btn-group button {
+    margin-right: 5px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Project Monitoring</h1>
+    <div id="cblist"></div>
+    <input type="text" id="checkBoxName" />
+    <input type="button" value="Add Phase" id="btnSaveCheckBox" />
+    <div id="progressbar"></div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('#btnSaveCheckBox').click(function() {
+      addCheckbox($('#checkBoxName').val());
+      $('#checkBoxName').val("");
+      updateProgressBar();
+    });
+    
+    $(document).on('change', '#cblist input[type="checkbox"]', function() {
+      updateProgressBar();
+    });
+  
+    $(function() {
+      $("#progressbar").progressbar({
+        value: 0,
+        max: 100
+      });
+    });
+    
+    $(document).on('click', '.delete-btn', function() {
+      $(this).parent().remove();
+      updateProgressBar();
+    });
+});
+
+function addCheckbox(name) {
+    var container = $('#cblist');
+    var inputs = container.find('input');
+    var id = inputs.length + 1;
+  
+    var phaseItem = $('<div>', {
+      class: 'phase-item'
+    }).appendTo(container);
+    
+    var checkbox = $('<input />', {
+      type: 'checkbox',
+      id: 'cb' + id,
+      value: name
+    }).appendTo(phaseItem);
+    
+    var label = $('<label />', {
+      'for': 'cb' + id,
+      class: 'phase-text',
+      text: name
+    }).appendTo(phaseItem);
+    
+    var deleteButton = $('<button>', {
+      text: 'Delete',
+      class: 'delete-btn'
+    }).appendTo(phaseItem);
+    
+    $('<br/>').appendTo(phaseItem);
+}
+
+function updateProgressBar() {
+    var totalPhases = $('#cblist input[type="checkbox"]').length;
+    var completedPhases = $('#cblist input[type="checkbox"]:checked').length;
+    var progress = (completedPhases / totalPhases) * 100;
+    $('#progressbar').progressbar('value', progress);
+}
+</script>
+</body>
+</html>
