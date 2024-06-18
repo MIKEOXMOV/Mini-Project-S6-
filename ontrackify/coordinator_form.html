@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coordinator Evaluation</title>
+    <style>
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <h1>Coordinator Evaluation</h1>
+    <form action="coordinator_evaluate.php" method="post">
+        <div class="form-group">
+            <label for="student_id">Student ID:</label>
+            <input type="number" id="student_id" name="student_id" required>
+        </div>
+        <div class="form-group">
+            <label for="project_id">Project ID:</label>
+            <input type="number" id="project_id" name="project_id" required>
+        </div>
+        <div class="form-group">
+            <label for="attendance">Attendance (10 marks):</label>
+            <input type="number" id="attendance" name="attendance" required>
+        </div>
+        <div class="form-group">
+            <label for="guide_marks">Marks awarded by Guide (15 marks):</label>
+            <input type="number" id="guide_marks" name="guide_marks" required>
+        </div>
+        <div class="form-group">
+            <label for="project_report">Project Report (10 marks):</label>
+            <input type="number" id="project_report" name="project_report" required>
+        </div>
+        <div class="form-group">
+            <label for="committee_evaluation">Evaluation by the Committee (40 marks):</label>
+            <input type="number" id="committee_evaluation" name="committee_evaluation" required>
+        </div>
+        <div class="form-group">
+            <label for="end_sem_demo">End Semester Demonstration (50 marks):</label>
+            <input type="number" id="end_sem_demo" name="end_sem_demo" required>
+        </div>
+        <div class="form-group">
+            <label for="end_sem_report">End Semester Project Report (10 marks):</label>
+            <input type="number" id="end_sem_report" name="end_sem_report" required>
+        </div>
+        <div class="form-group">
+            <label for="end_sem_viva">End Semester Viva Voce (15 marks):</label>
+            <input type="number" id="end_sem_viva" name="end_sem_viva" required>
+        </div>
+        <div class="form-group">
+            <label for="comments">Comments:</label>
+            <textarea id="comments" name="comments"></textarea>
+        </div>
+        <input type="submit" value="Submit Evaluation">
+    </form>
+</body>
+</html>

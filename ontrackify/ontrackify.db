@@ -1,0 +1,31 @@
+CREATE DATABASE ontrackify_db;
+
+USE ontrackify_db;
+
+CREATE TABLE guide_evaluations (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id INT,
+    guide_id INT,
+    project_id INT,
+    work_upload INT,
+    teamwork INT,
+    performance INT,
+    comments TEXT,
+    total_marks INT
+);
+
+CREATE TABLE coordinator_evaluations (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id INT,
+    coordinator_id INT,
+    project_id INT,
+    attendance INT,
+    guide_marks INT,
+    project_report INT,
+    committee_evaluation INT,
+    end_sem_demo INT,
+    end_sem_report INT,
+    end_sem_viva INT,
+    comments TEXT,
+    total_marks INT
+);
