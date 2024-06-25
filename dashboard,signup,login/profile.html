@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>User Input Form Example</title>
+
+    <meta name="author" content="Codeconvey">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
+    <!-- Only for demo purpose - no need to add. -->
+    <link rel="stylesheet" href="css/demo.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="ScriptTop">
+    <div class="rt-container">
+        <div class="col-rt-4" id="float-right">
+            <!-- Ad Here -->
+        </div>
+        <div class="col-rt-2">
+            <ul>
+                <li><a href="https://codeconvey.com/html-code-for-student-profile" title="Back to tutorial page">Back to Tutorial</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<header class="ScriptHeader">
+    <div class="rt-container">
+        <div class="col-rt-12">
+            <div class="rt-heading">
+                <h1>User Input Form Example</h1>
+                <p>Enter your information below:</p>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section>
+    <div class="rt-container">
+        <div class="col-rt-12">
+            <div class="Scriptcontent">
+                <!-- User Input Form -->
+                <form id="userInputForm" class="py-4">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="card shadow-sm">
+                                <div class="card-header bg-transparent text-center">
+                                    <img class="profile_img" id="profileImg" src="https://source.unsplash.com/600x300/?student" alt="student dp">
+                                    <h3 id="userName">Your Name</h3>
+                                </div>
+                                <div class="card-body">
+                                    <p class="mb-0"><strong class="pr-1">Student ID:</strong><span id="studentID">321000001</span></p>
+                                    <p class="mb-0"><strong class="pr-1">Class:</strong><span id="studentClass">4</span></p>
+                                    <p class="mb-0"><strong class="pr-1">Section:</strong><span id="studentSection">A</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="card shadow-sm">
+                                <div class="card-header bg-transparent border-0">
+                                    <h3 class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h3>
+                                </div>
+                                <div class="card-body pt-0">
+                                    <div class="form-group">
+                                        <label for="inputRoll">Roll:</label>
+                                        <input type="text" class="form-control" id="inputRoll" placeholder="Enter Roll">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputAcademicYear">Academic Year:</label>
+                                        <input type="text" class="form-control" id="inputAcademicYear" placeholder="Enter Academic Year">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputGender">Gender:</label>
+                                        <input type="text" class="form-control" id="inputGender" placeholder="Enter Gender">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputReligion">Religion:</label>
+                                        <input type="text" class="form-control" id="inputReligion" placeholder="Enter Religion">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputBlood">Blood Type:</label>
+                                        <input type="text" class="form-control" id="inputBlood" placeholder="Enter Blood Type">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputOtherInfo">Other Information:</label>
+                                        <textarea class="form-control" id="inputOtherInfo" rows="4" placeholder="Enter Other Information"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3 text-center">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+                <!-- End User Input Form -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- JavaScript to handle form submission and update profile -->
+<script>
+    document.getElementById("userInputForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        // Get form values
+        var roll = document.getElementById("inputRoll").value.trim();
+        var academicYear = document.getElementById("inputAcademicYear").value.trim();
+        var gender = document.getElementById("inputGender").value.trim();
+        var religion = document.getElementById("inputReligion").value.trim();
+        var bloodType = document.getElementById("inputBlood").value.trim();
+        var otherInfo = document.getElementById("inputOtherInfo").value.trim();
+
+        // Update profile information
+        document.getElementById("studentID").textContent = roll;
+        document.getElementById("studentClass").textContent = academicYear;
+        document.getElementById("studentSection").textContent = gender;
+        document.getElementById("userName").textContent = otherInfo;
+
+        // Optionally, update profile picture (src attribute of #profileImg)
+
+        // Reset form
+        document.getElementById("userInputForm").reset();
+    });
+</script>
+
+</body>
+</html>
