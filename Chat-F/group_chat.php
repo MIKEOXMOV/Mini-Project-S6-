@@ -161,78 +161,9 @@ form {
     </style>
 </head>
 <body>
-    <nav>
-        <div class="logo-name">
-            <div class="logo-image">
-                <img src="logo.png" alt="Logo">
-            </div>
-            <span class="logo_name">OnTrackify</span>
-        </div>
-
-        <div class="menu-items">
-            <ul class="nav-links">
-                <li><a href="#">
-                    <i class="uil uil-estate"></i>
-                    <span class="link-name">Dashboard</span>
-                </a></li>
-                <li><a href="get_guides1.php">
-                    <i class="uil uil-user-square"></i>
-                    <span class="link-name">Guide</span>
-                </a></li>
-                <li><a href="studentprojects.php">
-                    <i class="uil uil-chart"></i>
-                    <span class="link-name">Enroll</span>
-                </a></li>
-                <li><a href="" id="joinGroupLink">
-                    <i class="uil uil-users-alt"></i>
-                    <span class="link-name">Join Group</span>
-                </a></li>
-                <li><a href="student_calender.php">
-                    <i class="uil uil-calendar-alt"></i>
-                    <span class="link-name">Project Calendar</span>
-                </a></li>
-                <li><a href="group_chat.php">
-                    <i class="uil uil-comment-lines"></i>
-                    <span class="link-name">Chat</span>
-                </a></li>
-                <li><a href="#">
-                    <i class="uil uil-angle-double-up"></i>
-                    <span class="link-name">Previous Projects</span>
-                </a></li>
-                <li><a href="student_notifications.php">
-                    <i class="uil uil-bell bell"></i>
-                    <span class="link-name">Notifications</span>
-                </a></li>
-                <li><a href="view_enrolled_projects.php">
-                    <i class="uil uil-award"></i>
-                    <span class="link-name">Marks</span>
-                </a></li>
-            </ul>
-            
-            <ul class="logout-mode">
-                <li><a href="logout.php">
-                    <i class="uil uil-signout"></i>
-                    <span class="link-name">Logout</span>
-                </a></li>
-                <li class="mode">
-                    <a href="#">
-                        <i class="uil uil-moon"></i>
-                        <span class="link-name">Dark Mode</span>
-                    </a>
-                    <div class="mode-toggle">
-                        <span class="switch"></span>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
     <section class="dashboard">
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
-            <div class="search-box">
-                <i class="uil uil-search"></i>
-                <input type="text" placeholder="Search here...">
-            </div>
             <div class="notification" id="notificationBell">
                 <i class="uil uil-bell"></i>
                 <span class="badge" id="notificationBadge"><?php echo $notification_count; ?></span>
